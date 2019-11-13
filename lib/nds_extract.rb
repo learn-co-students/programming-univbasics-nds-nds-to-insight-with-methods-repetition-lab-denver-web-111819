@@ -10,6 +10,7 @@ def directors_totals(source)
     director_index += 1
   end
   result
+  #binding.pry
 end
 
 def gross_for_director(d)
@@ -25,12 +26,14 @@ def gross_for_director(d)
 end
 
 def list_of_directors(source)
-  list = []
+  #binding.pry
+  #list = source.keys
   row_index = 0
+  list = []
 
   while row_index < source.length do
     list << source[row_index][:name]
-  
+    #binding.pry
     row_index += 1
   end
 
@@ -44,17 +47,18 @@ def total_gross(source)
   # 1. directors_totals: returns a Hash of { dir_name => gross }
   # 2. list_of_directors: names provides an Array of directors names (use
   names_with_totals = directors_totals(source)
-  directors = list_of_directors(names_with_totals)
+  directors = list_of_directors(source)
+  #binding.pry
   gross = 0
   row_index = 0
 
   while row_index < directors.length do
-    total += directors[row_index]
+    gross += names_with_totals[directors[row_index]]
   
     row_index += 1
   end
 
-  total
+  gross
 end
 
 
