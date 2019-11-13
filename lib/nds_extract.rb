@@ -12,6 +12,12 @@ def directors_totals(source)
   result
 end
 
+
+
+
+
+
+
 def gross_for_director(d)
   total = 0
   index = 0
@@ -24,7 +30,24 @@ def gross_for_director(d)
   total
 end
 
+
+
+
+
+
 def list_of_directors(source)
+  result = []
+  #puts source
+  #sleep (2)
+  i = 0 
+  while i < source.length do
+    result.push(source[i][:name])
+    i +=1
+  end
+  #puts result
+  #sleep(2)
+  return result
+  
   # Write this implementation
 end
 
@@ -38,6 +61,37 @@ def total_gross(source)
   # Visit each key (i.e. director name), look up the value in the hash
   # returned by directors_totals, and add it to a running total. When done,
   # return the total
+  
+  #puts source
+  db = source
+  
+  totals = directors_totals(db)
+  puts totals
+  puts ""
+  sleep(5)
+  directors = list_of_directors(db)
+  puts directors
+  puts ""
+  sleep(5)
+  
+  total = 0
+  i = 0
+  
+  
+  directors.each do |n|
+    puts totals[n]
+    total += totals[n]
+  end
+  
+  puts total
+  
+  
+  
+  return total
+  
+  #db[0][:movies].each { |key,value| puts "#{value}------\n" }
+  
+
 end
 
 
